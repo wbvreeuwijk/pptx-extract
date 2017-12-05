@@ -22,7 +22,7 @@ VOLUME /presentations
 VOLUME /data 
 
 # Insert schedule in crontab 
-RUN echo "FONT_DIR=/pptx-extract/bin/fonts" >> /etc/crontab
+RUN echo "FONT_DIR=/pptx-extract/fonts" >> /etc/crontab
 RUN echo "GOOGLE_APPLICATION_CREDENTIALS=/config/google.json" >> /etc/crontab
 RUN echo "0,15,30,45 * * * * root /pptx-extract/bin/pptx-extract /presentations /data > /proc/1/fd/1 2>/proc/1/fd/2" >> /etc/crontab
 
