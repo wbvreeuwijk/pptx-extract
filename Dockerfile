@@ -22,7 +22,7 @@ VOLUME /presentations
 VOLUME /data 
 
 # Insert schedule in crontab 
-
+RUN echo "GOOGLE_APPLICATION_CREDENTIALS=/config/google.json" >> /etc/crontab
 RUN echo "0 * * * * root /pptx-extract/bin/pptx-extract /presentations /data > /proc/1/fd/1 2>/proc/1/fd/2" >> /etc/crontab
 
 WORKDIR /config 
