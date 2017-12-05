@@ -7,7 +7,7 @@ LABEL maintainer="bvk@qlik.com"
 RUN apt-get update \
  && apt-get install ca-certificates wget cron -y 
  
-RUN wget https://github.com/wbvreeuwijk/pptx-extract/releases/download/0.1.1/pptx-extract.zip \
+RUN wget https://github.com/wbvreeuwijk/pptx-extract/releases/download/0.2/pptx-extract.zip \
  && unzip -o pptx-extract.zip \  
  && rm  pptx-extract.zip 
  
@@ -23,7 +23,7 @@ VOLUME /data
 
 # Insert schedule in crontab 
 RUN echo "GOOGLE_APPLICATION_CREDENTIALS=/config/google.json" >> /etc/crontab
-RUN echo "0 * * * * root /pptx-extract/bin/pptx-extract /presentations /data > /proc/1/fd/1 2>/proc/1/fd/2" >> /etc/crontab
+RUN echo "0,15,30,45 * * * * root /pptx-extract/bin/pptx-extract /presentations /data > /proc/1/fd/1 2>/proc/1/fd/2" >> /etc/crontab
 
 WORKDIR /config 
 
