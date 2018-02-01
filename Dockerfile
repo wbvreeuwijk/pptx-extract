@@ -16,6 +16,7 @@ RUN mkdir /config \
  && mkdir /data 
  
 ENV GOOGLE_APPLICATION_CREDENTIALS=/config/google.json
+ENV FONT_DIR=/pptx-extract/fonts
 
 VOLUME /config 
 VOLUME /presentations 
